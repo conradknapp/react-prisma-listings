@@ -1,0 +1,29 @@
+type User {
+  id: ID! @unique
+  name: String!
+  email: String! @unique
+  password: String!
+  listings: [Listing!]!
+  messages: [Message!]!
+}
+
+type Message {
+  id: ID! @unique
+  title: String!
+  text: String!
+  author: User!
+  listing: Listing!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Listing {
+  id: ID! @unique
+  name: String!
+  description: String!
+  price: Int!
+  imageUrl: String!
+  owner: User!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
